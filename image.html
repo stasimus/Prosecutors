@@ -1,1 +1,41 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-contextmenu/2.2.3/jquery.contextMenu.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-contextmenu/2.2.3/jquery.contextMenu.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-contextmenu/2.2.3/jquery.ui.position.min.js"></script>
 
+<script>
+$(function(){
+    $.contextMenu({
+        selector: '.context-menu-one', 
+        trigger: 'hover',
+        delay: 200,
+        autoHide: true,
+        callback: function(key, options) {
+            var m = "clicked: " + key;
+            window.console && console.log(m); 
+        },
+        items: {
+            "ps": {
+            	name: "Professional standards" 
+            	icon: function(opt, $itemElement, itemKey, item){         		 
+		            $itemElement.html('<span class="glyphicon glyphicon-star" aria-hidden="true"></span> ' + opt.selector);
+		            return 'context-menu-icon-updated';
+        		}
+        	},
+            "practice": {name: "Practice"},
+            "pa": {name: "Professional associations"},
+            "hrd": {name: "HRD"},
+            "stories": {name: "Stories"},
+            "reports": {name: "Reports"},
+            "recommendations": {name: "Recommendations"},
+            "petitions": {name: "Petitions"},
+            "oi": {name: "Other issues"}
+        }
+    });
+});
+</script>
+
+
+<span class="context-menu-one">
+<img src="https://static.wixstatic.com/media/2059e9_0333397c14d14f36894498abb334db97~mv2.png/v1/fill/w_588,h_588,al_c,lg_1/2059e9_0333397c14d14f36894498abb334db97~mv2.png" style="width: 457px; height: 388px; object-fit: fill;"></img>
+</span>
